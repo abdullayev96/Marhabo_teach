@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ <h1> yangi post </h1>
+  {% if user.is_authenticated %}
+     <form method="post" class="my-class"  enctype="multipart/form-data">{% csrf_token %}
+         {{ form.as_p }}
+         <button class="btn btn-success" type="submit">Saqlash </button>
+     </form>
+  {% else %}
+    <h1> Yangi post qo'shish uchun royxatdan otishingizni sorayman </h1>
+     <a href="{% url 'signup' %}">Royxatdan o'tish</a>
+  {% endif %}
+{% endblock content %}

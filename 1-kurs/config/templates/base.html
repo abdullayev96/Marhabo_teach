@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html >
+ <head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Marhamat IT talim kurslari {% endblock title %}</title>
+ </head>
+ <body>
+      <div class="box" style="display:flex">
+          <button type="button" >
+              Categoris
+          </button>
+           <ul>
+              {% for i in categories %}
+                <li><a href="{% url 'articles:category' i.name  %}">{{i.name}}</a></li>
+              {% endfor %}
+           </ul>
+      </div>
+
+   <main>
+     {% block content %}
+
+     {% endblock content %}
+   </main>
+
+ </body>
+</html>

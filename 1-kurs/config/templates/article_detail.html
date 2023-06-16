@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+ {% if object.photo %}
+    <img  src="{{ article.photo.url }}" class="rounded mx-auto d-block" alt="{{ article.title }}">
+<!--    {{ object.photo.url }}| {{ object.title }}-->
+ {% endif %}
+   <div class="mavzu">
+       <h1>{{ object.title }}</h1>
+   </div>
+    {{ object.body | safe }}
+
+  <h5>Muallif: {{ object.author }}| {{ object.date }}</h5>
+
+   <h1><a href="{% url 'article_edit' article.pk %}"> Tahrirlash</a></h1>
+   <h2><a href="{% url 'article_delete' article.pk %}"> O'chirish</a></h2>
+   <h3><a href="{% url 'article_list' %}"> Barcha postlar</a></h3>
+   <h3><a href="{% url 'home' %}"> Asosiy menu</a></h3>
+
+{% endblock content %}
+
+
+

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} category {% endblock title %}
+
+{% block content %}
+<div class="post_1">
+    {% for article in object_list %}
+       <div class="card" style="...">
+           <div class="card-header">
+               <span class="font-weight-bold"><a href="{% url 'article_detail' article.pk %}"><h2>{{ article.title }}</h2></a> </span>
+           </div>
+           {% if article.photo %}
+               <p><img  src="{{ article.photo.url }}"  style="width: 200px; height:200px;" alt="{{ article.title }}"></p>
+           {% endif %}
+
+           {% if article.video %}
+            <video>
+               <source src="{{article.video.url}}" type="video/mp4"/>
+            </video>
+           {% endif %}
+            <div>
+                {{ article.summary }}... <a href="{% url 'article_detail' article.pk %}"> Batafsil </a>
+            </div>
+           <div class="card-footer text-left text-muted">
+                <span class="text-muted"> Muallif {{ article.author | title }}, {{ article.date }}</span>
+            </div>
+
+        </div>
+    {% endfor %}
+  </div>
+{% endblock content %}

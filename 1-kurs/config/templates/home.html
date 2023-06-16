@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %} Marhamat IT talim maskani  {% endblock title %}
+
+{% block content %}
+<h1> {{user}}</h1><p>  hush kelibsiz</p>
+
+<div class="box" style="display:flex">
+  <div style="margin: 0 10px">
+     <button>
+         <a href="{% url 'login' %} ">
+             Kirish
+         </a>
+
+         <br>
+         <a href="{% url 'logout' %} ">
+             chiqish
+         </a>
+         <br>
+
+         <br>
+         <a href="{% url 'signup' %} ">
+             Ro'yhatdan o'tish
+         </a>
+         <br>
+
+         <br>
+              <a href="{#% url 'article_new' %#} ">yangi malumotlar qoshish</a>
+         <br>
+             <h3><a href="{#% url 'article_list' %#}"> Barcha postlar</a></h3>
+
+     </button>
+  </div>
+
+</div>
+
+
+
+{% endblock content %}
